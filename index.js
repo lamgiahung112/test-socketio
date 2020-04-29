@@ -1,5 +1,11 @@
-const io = require('socket.io')(3000)
+const express = require('express')
+const app = express()
 
+app.use('/', (req, res) => {
+   res.render('index.html')
+})
+
+const io = require('socket.io')(3000)
 const users = {}
 
 io.on('connection', socket => {
